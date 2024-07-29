@@ -1,22 +1,37 @@
-#ACTIVIDAD 2 - 201904013
+# ACTIVIDAD 2 - 201904013
 
 Para Hacer ejecutable el script
-> **Nota:**Dale permisos de ejecución al script:
+> Darle permisos de ejecución al script:
 ```sh
-chmod +x github_user_info.sh
+chmod +x /tmp/github_user_info.sh
+
 ```
 
 
-Asegúrate de tener jq instalado para poder procesar el JSON. Puedes instalarlo usando:
+Tener jq instalado para poder procesar el JSON
 ```sh
 sudo apt-get install jq 
 ```
+Ejecutar el Script Manualmente
+> Para probar el script manualmente:
+```sh
+/tmp/github_user_info.sh <github_user>
+```
 
-
-Para crear un cronjob que ejecute el script cada 5 minutos, sigue estos pasos:
-> **Paso 1:**Abre el archivo de crontab del usuario:
+Para crear un cronjob que ejecute el script cada 5 minutos:
+> Abrir el crontab:
 ```sh
 crontab -e
 ```
+
+Añadir la línea para el cronjob:
+> Añadir la siguiente línea al final del archivo:
+```sh
+*/5 * * * * /tmp/github_user_info.sh <github_user>
+```
+
+Guardar y cerrar el crontab
+> El cronjob ahora está configurado para ejecutar el script cada 5 minutos.
+
 
 
